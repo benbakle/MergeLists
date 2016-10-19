@@ -1,27 +1,27 @@
 ﻿describe("The mergeLists function", function () {
     it("marks each list item", function () {
         var $ul = $("<ul><li>Test</li><li>Test2</li></ul>");
-
         mergeLists($ul,false);
-        
         var listItemsContainClass= true; 
         $("> li", $ul).each(function () {
             listItemsContainClass = $(this).hasClass("appended-item") && listItemsContainClass;
         });
         expect(listItemsContainClass).toBe(true);
     });
+
     it("given the decending flag is set", function () {
         var $ul = $("<ul><li>Test</li><li>Test2</li></ul>");
-        var $ulRev = $("<ul><li>Test</li><li>Test2</li></ul>");
-      //  $ulRev = reverseList($ulRev);
+        var $ulRev = $ul.clone();
+        //:: $ulRev TO MATCH $ul
+        $ulRev = reverseList($ulRev);
         addClassToListItems($ulRev, "appended-item");
-
         mergeLists($ul, false);
-
-        expect($ul.html()).toBe($ulRev.html());
-
+        expect($ul.html()).toEqual($ulRev.html());
     });
-
+    it("given a target list is empty", function () {
+        
+        expect().toEqual();
+    });
 });
 
 
