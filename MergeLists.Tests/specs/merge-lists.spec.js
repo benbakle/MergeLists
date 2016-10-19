@@ -1,20 +1,46 @@
 ﻿describe("The mergeLists function", function () {
     it("marks each list item", function () {
         var $ul = $("<ul><li>Test</li><li>Test2</li></ul>");
-        mergeLists($ul);
-        expect($("li", $ul).hasClass("appended-item")).toBe(true);
 
+        mergeLists($ul,false);
+        
+        var listItemsContainClass= true; 
+        $("> li", $ul).each(function () {
+            listItemsContainClass = $(this).hasClass("appended-item") && listItemsContainClass;
+        });
+        expect(listItemsContainClass).toBe(true);
+    });
+    it("given the decending flag is set", function () {
+        var $ul = $("<ul><li>Test</li><li>Test2</li></ul>");
+        var $ulRev = $("<ul><li>Test</li><li>Test2</li></ul>");
+      //  $ulRev = reverseList($ulRev);
+        addClassToListItems($ulRev, "appended-item");
 
+        mergeLists($ul, false);
 
-            //$("> li", $ul).each(function () {
-            // console.log($(this));
-            // return $(this).hasClass("appended-item");
+        expect($ul.html()).toBe($ulRev.html());
 
     });
+
 });
 
 
 
+function reverseList(ul) {
+  return  $(("> li", ul).get().reverse()).wrap("<ul></ul>").addClass("reversed");
+}
+
+function addClassToListItems(ul, className) {
+    $("li", ul).each(function () {
+        $(this).addClass(className);
+    });
+}
+
+function stringToList(ulString) {
+    $("> li:first-child", ulString).before("<ul>");
+    $("> li:last", ulString).after("</ul>");
+
+}
 
 //The mergeLists function 
 //	adds class to given list items
