@@ -1,9 +1,14 @@
 ﻿function mergeLists(ulToInsert, ulInsertInto, decending) {
+    var ulToInsertListItems = listItems(ulToInsert);
 
-    if (decending) {
-        reverseList(ulToInsert);
+    decending && reverseList(ulInsertInto);
+    addClassToListItems(ulToInsert, "appended-item");
+
+    if (listIsEmpty(ulInsertInto)) {
+        ulInsertInto.append(ulToInsertListItems);
+
     }
-    return addClassToListItems(ulToInsert, "appended-item");
+    return ulInsertInto;
 }
 
 
@@ -26,6 +31,9 @@ function listItems(ul) {
     return $('> li', ul);
 }
 
+function listIsEmpty(ul) {
+    return listLength(ul) == 0;
+}
 
 //::  CREATE TEST CASE :://
 function addListItemToList(listItem, ul, position) {
