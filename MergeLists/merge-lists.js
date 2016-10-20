@@ -1,12 +1,15 @@
-﻿function mergeLists(ulToInsert, decending) {
+﻿function mergeLists(ulToInsert, ulInsertInto, decending) {
+
     if (decending) {
-        console.log(decending);
-       ulToInsert =  reverseList(ulToInsert);
+        reverseList(ulToInsert);
     }
     return addClassToListItems(ulToInsert, "appended-item");
 }
 
 
+function listLength(ul) {
+    return ul.find(">li").length;
+}
 function addClassToListItems(ul, className) {
     $("li", ul).each(function () {
         $(this).addClass(className);
@@ -14,5 +17,18 @@ function addClassToListItems(ul, className) {
 }
 
 function reverseList(ul) {
-    return $(("> li", ul).get().reverse()).wrap("<ul></ul>").addClass("reversed");
+    return ul.children().each(function (i, li) {
+        ul.addClass("reversed").prepend(li)
+    });
+}
+
+function listItems(ul) {
+    return $('> li', ul);
+}
+
+
+//::  CREATE TEST CASE :://
+function addListItemToList(listItem, ul, position) {
+    var ul_len = listLength(ul);
+    (position > ul_len) ? $("> li:last-child", ul).after(listItem) : $("> li:nth-child(" + position + ")", ul).before(listItem);
 }
