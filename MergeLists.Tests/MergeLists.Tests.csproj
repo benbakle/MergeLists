@@ -62,6 +62,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="specs\merge-lists.spec.js" />
+    <Content Include="specs\testDom.html" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
