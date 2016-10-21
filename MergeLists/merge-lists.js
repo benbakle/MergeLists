@@ -1,20 +1,38 @@
-﻿function mergeLists(ulToInsert, ulInsertInto, position, decending) {
-    var ulToInsertListItems = listItems(ulToInsert);
+﻿//function mergeLists(ulToInsert, ulInsertInto, position, decending) {
+//    var ulToInsertListItems = listItems(ulToInsert);
 
-    decending && reverseList(ulToInsert);
-    addClassToListItems(ulToInsert, "appended-item");
+//  //  decending && reverseList(ulToInsert);
 
-    if (listIsEmpty(ulInsertInto)) {
-        ulInsertInto.append(ulToInsertListItems);
-    //} else {
-    //    if (position == 1) {
-    //        ulToInsertListItems.insertBefore($('> li:first-child', ulInsertInto));
-    //    } else {
-    //        ulToInsertListItems.insertAfter($('> li:nth-child(' + (position - 1) + ')', ulInsertInto));
-    //    }
+//    if (decending) {
+//        debugger;
+//        reverseList(ulToInsert);
+//    }
+
+//    addClassToListItems(ulToInsert, "appended-item");
+
+//    if (listIsEmpty(ulInsertInto)) {
+//        ulInsertInto.append(ulToInsertListItems);
+//    } else {
+//        if (position == 1) {
+//            ulToInsertListItems.insertBefore($('> li:first-child', ulInsertInto));
+//        } else {
+//            ulToInsertListItems.insertAfter($('> li:nth-child(' + (position - 1) + ')', ulInsertInto));
+//        }
+//    }
+
+//}
+
+function mergeLists(ulInsert, ulInsertInto, position, decending) {
+    addClassToListItems(ulInsert, "appended-item");
+    decending && reverseList(ulInsert);
+    var ulItems = listItems(ulInsert);
+    if (listLength(ulInsertInto) == 0) {
+        ulInsertInto.append(ulItems);
+    } else {
+        (position == 1) ? ulItems.insertBefore($('> li:first-child', ulInsertInto)) : ulItems.insertAfter($('> li:nth-child(' + (position - 1) + ')', ulInsertInto))
     }
-
 }
+
 
 
 function listLength(ul) {

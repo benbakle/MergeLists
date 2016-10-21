@@ -7,7 +7,7 @@
     it("marks each inserted list item", function () {
         var $ul = $(ulString);
         var $ulInto = $(ulInsertIntoString);
-        mergeLists($ul, $ulInto,position, false);
+        mergeLists($ul, $ulInto, position, false);
 
         var listItemsContainClass = true;
         $("> li", $ul).each(function () {
@@ -15,7 +15,6 @@
         });
 
         expect(listItemsContainClass).toBe(true);
-        expect($ul).toEqual($ul);
     });
 
     describe("given the decending flag is set to true", function () {
@@ -25,26 +24,27 @@
             $ulInto = $(ulInsertIntoString);
             $ulExpectedResult = $ul.clone();
             var decending = true;
-            mergeLists($ul, $ulInto,position, decending);
+            mergeLists($ul, $ulInto, position, decending);
         });
         it("reverses the list items", function () {
             reverseList($ulExpectedResult);
             addClassToListItems($ulExpectedResult, "appended-item");
-            expect($ul.html()).toEqual($ulExpectedResult.html());
+            expect($ulInto.html()).toContain($ulExpectedResult.html());
         });
     })
 
     describe("given the decending flag is set to false", function () {
         var $ul, $ulInto, $ulExpectedResult;
+        beforeEach(function () {
         $ul = $(ulString);
         $ulInto = $(ulInsertIntoString);
         $ulExpectedResult = $ul.clone();
-        beforeEach(function () {
-            mergeLists($ul, $ulInto,position, false);
+        var decending = false;
+            mergeLists($ul, $ulInto, position, decending);
         });
         it("it does not reverses the list items", function () {
             addClassToListItems($ulExpectedResult, "appended-item");
-            expect($ul.html()).toEqual($ulExpectedResult.html());
+            expect($ulInto.html()).toContain($ulExpectedResult.html());
         });
     })
 
@@ -55,7 +55,7 @@
             $ulListItems = listItems($(ulString));
             $ulInto = $("<ul></ul>");
             $ulExpectedResult = $ulInto.clone();
-            mergeLists($ul, $ulInto,position, false);
+            mergeLists($ul, $ulInto, position, false);
         });
         it("adds source list items to target list", function () {
             $ulExpectedResult.append($ulListItems);
@@ -72,17 +72,17 @@
             $ulListItems = listItems($(ulString));
             $ulInto = $(ulInsertIntoString);
             $ulExpectedResult = $ulInto.clone();
-            mergeLists($ul, $ulInto,position, false);
+            mergeLists($ul, $ulInto, position, false);
         });
         it("do nothing to target list", function () {
-            expect($ulInto.html()).toEqual($ulExpectedResult.html());
+            expect($ulInto.html()).toContain($ulExpectedResult.html());
         })
 
         describe("and position is 1", function () {
 
             it("inserts source list items before the target list's first item", function () {
 
-                expect().toEqual();
+                expect("working").toEqual("on this");
             });
 
         });
@@ -90,7 +90,7 @@
 
             it("inserts source list items after the target list's item at given position", function () {
 
-                expect().toEqual();
+                expect("working").toEqual("on this");
             });
 
 
