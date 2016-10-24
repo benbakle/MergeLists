@@ -6,7 +6,7 @@
   "References": [
     { "Path": "../MergeLists/merge-lists.js" },
     { "Path": "../MergeLists/Scripts/jquery-3.1.1.js" },
-    { "Path": "../MergeLists/Scripts/jasmine-jquery.js" }
+    { "Path": "../MergeLists.Tests/spec/javascripts/jasmine-jquery.js" }
 
   ],
   "TestHarnessLocationMode": "SettingsFileAdjacent",
