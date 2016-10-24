@@ -61,8 +61,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="specs\merge-lists.spec.js" />
-    <Content Include="specs\testDom.html" />
+    <Content Include="spec\javascripts\jasmine-jquery.js" />
+    <Content Include="spec\javascripts\fixtures\listsFixture.html" />
+    <Content Include="spec\merge-lists.spec.js" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

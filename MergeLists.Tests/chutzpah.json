@@ -12,7 +12,7 @@
   "TestHarnessLocationMode": "SettingsFileAdjacent",
   "Tests": [
     {
-      "Path": "specs"
+      "Path": "spec"
     }
   ]
 }
