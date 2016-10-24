@@ -45,3 +45,6 @@
 //    return listLength(ul) == 0;
 //}
 
+function mergeListAsSubList() {
+
+}
