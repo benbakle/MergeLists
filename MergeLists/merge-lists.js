@@ -1,5 +1,7 @@
 ﻿(function (window) {
     window.mergeLists = mergeLists;
+    window.addListItemToList = addListItemToList;
+
     function mergeLists(ulInsert, ulInsertInto, position, decending) {
         addClassToListItems(ulInsert, "appended-item");
         decending && reverseList(ulInsert);
@@ -40,11 +42,3 @@
 
 
 })(window);
-
-//function listIsEmpty(ul) {
-//    return listLength(ul) == 0;
-//}
-
-function mergeListAsSubList() {
-
-}
