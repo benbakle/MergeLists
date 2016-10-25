@@ -139,7 +139,17 @@
 
     });
 
+    describe("The splitMergedLists function", function () {
+        beforeEach(function () {
+            //get variables set up
+            //mergeList
+            //splitList
+        });
 
+        it("splits previously merged list from source list into target list", function () {
+            expect(splitMergedLists).toExist();
+        });
+    });
 
 });
 

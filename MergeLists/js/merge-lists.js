@@ -108,7 +108,12 @@
     window.splitMergedLists = splitMergedLists
 
     function splitMergedLists(sourceList, targetList) {
-
+        $("> li", sourceList).each(function () {
+            if ($(this).hasClass("appended-item")) {
+                $(this).appendTo(targetList);
+                $(this).removeClass("appended-item");
+            }
+        })
     }
 
 
