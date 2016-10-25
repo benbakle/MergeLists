@@ -61,10 +61,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="spec\javascripts\jasmine-jquery.js" />
-    <Content Include="spec\javascripts\fixtures\listsFixture.html" />
-    <Content Include="spec\insert-list-as-dropdown-item.specs.js" />
-    <Content Include="spec\merge-as-sublist.specs.js" />
+    <Content Include="js\jasmine-jquery.js" />
     <Content Include="spec\merge-lists.spec.js" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

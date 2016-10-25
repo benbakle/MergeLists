@@ -4,11 +4,9 @@
   "Framework": "jasmine",
   "FrameworkVersion": "2",
   "References": [
-    { "Path": "../MergeLists/merge-lists.js" },
-    { "Path": "../MergeLists/merge-as-sublist.js" },
-    { "Path": "../MergeLists/insert-list-as-dropdown-item.js" },
+    { "Path": "../MergeLists/js/merge-lists.js" },
     { "Path": "../MergeLists/Scripts/jquery-3.1.1.js" },
-    { "Path": "../MergeLists.Tests/spec/javascripts/jasmine-jquery.js" }
+    { "Path": "../MergeLists.Tests/js/jasmine-jquery.js" }
 
   ],
   "TestHarnessLocationMode": "SettingsFileAdjacent",
