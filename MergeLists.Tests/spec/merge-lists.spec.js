@@ -1,13 +1,14 @@
-﻿describe("The merge-lists suite has", function () {
+﻿describe("The merge-lists suite", function () {
+
+    var fixture, sourceList, targetList, expectedResult;
+    beforeEach(function () {
+        fixture = setUpHTMLFixture();
+        sourceList = fixture.find(".list1");
+        targetList = fixture.find(".list2");
+    });
 
     //:: MERGE LIST AS SUB FUNCTION :://
-    describe("The mergeLists function", function () {
-        var fixture, sourceList, targetList, expectedResult;
-        beforeEach(function () {
-            fixture = setUpHTMLFixture();
-            sourceList = fixture.find(".list1");
-            targetList = fixture.find(".list2");
-        });
+    describe("-merges one list with another", function () {
         it("marks each inserted list item", function () {
             mergeLists(sourceList, targetList, 1, false);
             var listItemsContainClass = true;
@@ -71,12 +72,8 @@
     });
 
     //:: MERGE LIST AS SUB FUNCTION :://
-    describe("The mergeListAsSub function", function () {
-        var fixture, sourceList, targetList, position, decending, newListItem;
+    describe("-merges a list as a sublist", function () {
         beforeEach(function () {
-            fixture = setUpHTMLFixture();
-            sourceList = fixture.find(".list1");
-            targetList = fixture.find(".list2");
             position = 2;
             decending = false;
             newListItem = "New Item";
@@ -104,14 +101,10 @@
 
 
     //:: INSERT LIST AS DROPDOWN FUNCTION :://
-    describe("The insertListAsDropdownItem function", function () {
-        var fixture, dropdownItemName, sourceList, targetList, parentPosition, childPosition;
+    describe("-inserts list as a dropdown item", function () {
 
         beforeEach(function () {
-            fixture = setUpHTMLFixture();
             dropdownItemName = "Sublist Parent";
-            sourceList = fixture.find(".list1");
-            targetList = fixture.find(".list2");
             parentPosition = 2;
             childPosition = 1;
             insertListAsDropdownItem(dropdownItemName, sourceList, targetList, parentPosition, childPosition)
@@ -139,15 +132,26 @@
 
     });
 
-    describe("The splitMergedLists function", function () {
+    describe("-splits merged lists", function () {
         beforeEach(function () {
-            //get variables set up
-            //mergeList
-            //splitList
+            mergeLists(targetList, sourceList, 2, false);
+            splitMergedLists(sourceList, targetList);
         });
 
-        it("splits previously merged list from source list into target list", function () {
-            expect(splitMergedLists).toExist();
+        describe("given source list items were merged", function () {
+            it("splits items from source list", function () {
+                expect($("> li", sourceList).length).toEqual(3);
+            });
+            it("adds items to target list", function () {
+                expect($("> li", targetList).length).toEqual(3);
+            });
+            it("removes 'appended-item' flag from list item", function () {
+                var flagRemoved = true;
+                $("> li", targetList).each(function () {
+                    flagRemoved = flagRemoved && !$(this).hasClass("appended-item");
+                });
+                expect(flagRemoved).toBe(true);
+            });
         });
     });
 
